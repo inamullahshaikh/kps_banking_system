@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Sara Ahmed",
+        "email": "sara.ahmed@example.com",
+        "ph_num": "+923112345678",
+        "IBAN": "PKABCC10000000000001",
+        "PIN": "5678",
+        "Balance": 75000
+    },
+    {
+        "name": "Hassan Raza",
+        "email": "hassan.raza@example.com",
+        "ph_num": "+923212345678",
+        "IBAN": "PKABCC10000000000002",
+        "PIN": "4321",
+        "Balance": 30000
+    },
+    {
+        "name": "Fatima Noor",
+        "email": "fatima.noor@example.com",
+        "ph_num": "+923312345678",
+        "IBAN": "PKABCC10000000000003",
+        "PIN": "8765",
+        "Balance": 100000
+    },
+    {
+        "name": "Bilal Hussain",
+        "email": "bilal.hussain@example.com",
+        "ph_num": "+923412345678",
+        "IBAN": "PKABCC10000000000004",
+        "PIN": "3456",
+        "Balance": 45000
+    },
+    {
+        "name": "Ayesha Malik",
+        "email": "ayesha.malik@example.com",
+        "ph_num": "+923512345678",
+        "IBAN": "PKABCC10000000000005",
+        "PIN": "6543",
+        "Balance": 67000
+    },
+    {
+        "name": "Usman Tariq",
+        "email": "usman.tariq@example.com",
+        "ph_num": "+923612345678",
+        "IBAN": "PKABCC10000000000006",
+        "PIN": "9876",
+        "Balance": 85000
+    },
+    {
+        "name": "Hina Javed",
+        "email": "hina.javed@example.com",
+        "ph_num": "+923712345678",
+        "IBAN": "PKABCC10000000000007",
+        "PIN": "1111",
+        "Balance": 25000
+    }
+]
