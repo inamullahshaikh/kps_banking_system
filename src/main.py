@@ -13,10 +13,11 @@ def menu():
         print("6. Get user detail")
         print("7. Transfer")
         print("8. Logout users")
-        print("8. Exit")
+        print("9. Update users")
+        print("10. Exit")
         print("==============")
         opt = int(input("Enter option: "))
-        while opt < 1 or opt > 8:
+        while opt < 1 or opt > 10:
             opt = int(input("Invalid option selected: "))
 
         if opt == 1:
@@ -141,8 +142,37 @@ def menu():
                 t.start()
             for t in T:
                 t.join()
-        
+
         if opt == 9:
+            t_size = bank.get_user_count()
+            size = int(input(f"Enter the number of users you wish to Update (Total users: {t_size}): "))
+            while size > t_size:
+                size = int(input(f"Invalid number (Total users: {t_size}): "))
+            T = []
+            for i in range(size):
+                print(f"==UPDATE USER {i}==")
+                IBAN = input("Enter IBAN: ")
+
+                print("Leave a field blank if you don't want to update it.")
+                name = input("Enter new name: ").strip() or None
+                email = input("Enter new email: ").strip() or None
+                phnum = input("Enter new phone number: ").strip() or None
+
+                old_pin = None
+                new_pin = None
+                change_pin = input("Do you want to change PIN? (yes/no): ").strip().lower()
+                if change_pin == "yes":
+                    old_pin = input("Enter old PIN: ").strip()
+                    new_pin = input("Enter new PIN: ").strip()
+
+                T.append(threading.Thread(target=bank.update_user_info, args=(IBAN, name, email, phnum, old_pin, new_pin)))
+            for t in T:
+                t.start()
+            for t in T:
+                t.join()
+
+        
+        if opt == 10:
             print("Exiting")
             break
 if __name__ == "__main__":

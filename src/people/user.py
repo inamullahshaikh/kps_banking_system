@@ -117,6 +117,38 @@ class User(Person):
     def __str__(self):
         return f"IBAN: {self._IBAN}\nName: {self.name}\nEmail: {self.email}\nContact number: {self.phone_number}\nBalance: {self._Balance}\n" if self.Logged_IN else f"User with IBAN {self._IBAN} is not logged in"
     
+    def update_info(self, name=None, email=None, ph_num=None, old_pin=None, new_pin=None):
+        if not self._logged_in:
+            return {"status": 403, "message": f"User with IBAN {self._IBAN} is not logged in"}        
+        if name:
+            from .person import is_name
+            if is_name(name):
+                self._name = name
+            else:
+                return {"status": 400, "message": "Invalid name format"}        
+        if email:
+            from .person import is_email
+            if is_email(email):
+                self._email = email
+            else:
+                return {"status": 400, "message": "Invalid email format"}        
+        if ph_num:
+            from .person import is_phuonenum
+            if is_phuonenum(ph_num):
+                self._phone_number = ph_num
+            else:
+                return {"status": 400, "message": "Invalid phone number format"}        
+        if old_pin and new_pin:
+            if old_pin == self._PIN:
+                if is_PIN(new_pin):
+                    self._PIN = new_pin
+                else:
+                    return {"status": 400, "message": "Invalid new PIN format"}
+            else:
+                return {"status": 403, "message": "Old PIN does not match"}
+        
+        return {"status": 200, "message": "User information updated successfully"}
+
     def to_dict(self):
         return {
             "name": self.name,
